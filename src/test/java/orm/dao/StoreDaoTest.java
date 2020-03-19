@@ -5,7 +5,6 @@ import org.hibernate.stat.Statistics;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import orm.dao.StoreDao;
 import orm.domain.Store;
 
 import javax.persistence.EntityManager;
@@ -71,17 +70,6 @@ public class StoreDaoTest {
 		assertEquals("47 MySakila Drive", store.getAddress().getAddress());
 
 		assertEquals(1, statistics.getPrepareStatementCount());
-	}
-
-	@Test
-	void findAll() {
-		List<Store> stores = storeDao.findAll();
-
-		stores.forEach(System.out::println);
-
-		assertEquals(2, stores.size());
-		assertEquals(1, stores.get(0).getStoreId());
-		assertEquals(2, stores.get(1).getStoreId());
 	}
 
 	@Test

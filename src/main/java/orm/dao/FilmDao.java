@@ -14,11 +14,7 @@ public class FilmDao extends Dao {
 		throw new UnsupportedOperationException();
 	}
 
-	public Film findByIdWithQuery(int id) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Film findByIdWithNamedQuery(int id) {
+	public Film findByIdWithParameter(int id) {
 		throw new UnsupportedOperationException();
 	}
 

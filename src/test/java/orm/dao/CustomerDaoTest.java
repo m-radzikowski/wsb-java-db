@@ -5,7 +5,6 @@ import org.hibernate.stat.Statistics;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import orm.dao.CustomerDao;
 import orm.domain.Customer;
 
 import javax.persistence.EntityManager;
