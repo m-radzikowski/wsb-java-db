@@ -2,8 +2,7 @@ package orm.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Address {
@@ -15,9 +14,7 @@ public class Address {
 
 	private String district;
 
-	@ManyToOne
-	@JoinColumn(name = "city_id")
-//	@Transient
+	@Transient // TODO Remove this annotation and replace with valid relation config annotations
 	private City city;
 
 	@Override
