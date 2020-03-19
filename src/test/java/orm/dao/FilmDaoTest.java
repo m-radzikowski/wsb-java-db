@@ -3,7 +3,6 @@ package orm.dao;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import orm.dao.FilmDao;
 import orm.domain.Film;
 
 import javax.persistence.EntityManager;
@@ -32,7 +31,7 @@ public class FilmDaoTest {
 	}
 
 	@Test
-	void findWithId1Test() {
+	void findWithId1() {
 		Film film = filmDao.findWithId1();
 
 		System.out.println(film);
@@ -42,8 +41,8 @@ public class FilmDaoTest {
 	}
 
 	@Test
-	void findByIdWithQuery() {
-		Film film = filmDao.findByIdWithQuery(2);
+	void findByIdWithParameter() {
+		Film film = filmDao.findByIdWithParameter(2);
 
 		System.out.println(film);
 
@@ -52,18 +51,8 @@ public class FilmDaoTest {
 	}
 
 	@Test
-	void findByIdWithNamedQuery() {
-		Film film = filmDao.findByIdWithNamedQuery(3);
-
-		System.out.println(film);
-
-		assertEquals(3, film.getFilmId());
-		assertEquals("ADAPTATION HOLES", film.getTitle());
-	}
-
-	@Test
-	void findByIdWithNamedQuery_NonExisting() {
-		Film film = filmDao.findByIdWithNamedQuery(10_000);
+	void findByIdWithParameter_nonExistent() {
+		Film film = filmDao.findByIdWithParameter(10_000);
 
 		System.out.println(film);
 
@@ -81,7 +70,7 @@ public class FilmDaoTest {
 	}
 
 	@Test
-	void findByIdWithEM_NonExisting() {
+	void findByIdWithEM_nonExistent() {
 		Film film = filmDao.findByIdWithEM(10_000);
 
 		System.out.println(film);

@@ -1,6 +1,9 @@
 package orm.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Store {
@@ -8,7 +11,7 @@ public class Store {
 	@Id
 	private Integer storeId;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name = "address_id")
 //	@Transient // TODO Remove this annotation and replace with valid relation config annotations
 	private Address address;

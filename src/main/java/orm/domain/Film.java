@@ -2,15 +2,9 @@ package orm.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-
-import static orm.domain.Film.FIND_BY_ID;
 
 @Entity
-@NamedQuery(name = FIND_BY_ID, query = "FROM Film WHERE id = :id")
 public class Film {
-
-	public static final String FIND_BY_ID = "findById";
 
 	@Id
 	private Integer filmId;

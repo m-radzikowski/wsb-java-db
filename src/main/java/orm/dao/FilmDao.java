@@ -5,8 +5,6 @@ import orm.domain.Film;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
-import static orm.domain.Film.FIND_BY_ID;
-
 public class FilmDao extends Dao {
 
 	public FilmDao(EntityManager em) {
@@ -19,17 +17,10 @@ public class FilmDao extends Dao {
 			.getSingleResult();
 	}
 
-	public Film findByIdWithQuery(int id) {
-		return em
-			.createQuery("FROM Film WHERE id = :id", Film.class)
-			.setParameter("id", id)
-			.getSingleResult();
-	}
-
-	public Film findByIdWithNamedQuery(int id) {
+	public Film findByIdWithParameter(int id) {
 		try {
 			return em
-				.createNamedQuery(FIND_BY_ID, Film.class)
+				.createQuery("FROM Film WHERE id = :id", Film.class)
 				.setParameter("id", id)
 				.getSingleResult();
 		} catch (NoResultException e) {
