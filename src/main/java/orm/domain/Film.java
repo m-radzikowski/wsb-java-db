@@ -1,23 +1,25 @@
-package jdbc;
+package orm.domain;
 
-public class JdbcFilm {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
+import static orm.domain.Film.FIND_BY_ID;
+
+@Entity
+@NamedQuery(name = FIND_BY_ID, query = "FROM Film WHERE id = :id")
+public class Film {
+
+	public static final String FIND_BY_ID = "findById";
+
+	@Id
 	private Integer filmId;
+
 	private String title;
+
 	private Double rentalRate;
+
 	private Integer rentalDuration;
-
-	public JdbcFilm(Integer filmId, String title, Double rentalRate, Integer rentalDuration) {
-		this.filmId = filmId;
-		this.title = title;
-		this.rentalRate = rentalRate;
-		this.rentalDuration = rentalDuration;
-	}
-
-	@Override
-	public String toString() {
-		return "Film [" + filmId + "]: " + title + " ($" + rentalRate + " per " + rentalDuration + " days)";
-	}
 
 	public Integer getFilmId() {
 		return filmId;
@@ -33,6 +35,11 @@ public class JdbcFilm {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	@Override
+	public String toString() {
+		return "Film [" + filmId + "]: " + title + " ($" + rentalRate + " per " + rentalDuration + " days)";
 	}
 
 	public Double getRentalRate() {

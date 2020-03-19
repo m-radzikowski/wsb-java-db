@@ -1,4 +1,4 @@
-package jdbc;
+package jdbc.domain;
 
 public class JdbcActor {
 
