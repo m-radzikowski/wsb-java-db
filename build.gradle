@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'com.example.wsb'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.19'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.12.Final'
+
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.0'
+    testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
+}
